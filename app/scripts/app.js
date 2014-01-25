@@ -4,7 +4,8 @@ define([
 	'angular-cookies',
 	'angular-resource',
 	'angular-sanitize',
-	'angular-ui-router'
+	'angular-ui-router',
+    'directives/debounce'
 ], function( angular ) {
 
 	'use strict';
@@ -13,7 +14,8 @@ define([
 		'ngCookies',
 		'ngResource',
 		'ngSanitize',
-		'ui.router'
+		'ui.router',
+        'wmDebounce'
 	]);
 
 	app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
