@@ -1,10 +1,18 @@
-'use strict';
+define([
+	'app'
+], function( app ) {
 
-angular.module('weatherMeApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+
+	'use strict';
+
+	app.controller('MainCtrl', function ($scope) {
+
+		$scope.awesomeThings = [
+			'HTML5 Boilerplate',
+			'AngularJS',
+			'Karma'
+		];
+
+	});
+
+});

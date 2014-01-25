@@ -18,7 +18,10 @@
   "strict": true,
   "trailing": true,
   "smarttabs": true,
-  "globals": {
-    "angular": false
-  }
+    "globals": {
+        "angular": false,
+        "require": false,
+        "define": false,
+        "requirejs": false
+    }
 }
