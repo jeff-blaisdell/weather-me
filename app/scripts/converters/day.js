@@ -13,7 +13,7 @@ define([
 
 				var day = null;
 				if (dayNumber && typeof dayNumber === 'number' && dayNumber >= 0 || dayNumber <= 11) {
-					day = dayArray[day];
+					day = dayArray[dayNumber];
 				}
 
 				return day;

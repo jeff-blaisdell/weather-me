@@ -28,7 +28,7 @@ define([
 			var date = {};
 			if (unixTime && typeof unixTime === 'number') {
 				date.time      = new Date(unixTime * 1000);
-				date.dayOfWeek = DayConverter.convert(date.time);
+				date.dayOfWeek = DayConverter.convert(date.time.getUTCDay());
 				date.month     = MonthConverter.convert(date.time.getUTCMonth());
 				date.year      = date.time.getFullYear();
 				date.day       = date.time.getUTCDate();
@@ -49,11 +49,13 @@ define([
 						day.date = createDate(d.time);
 						day.icon = d.icon;
 						day.imageUrl = images[day.icon];
-						day.temperatureMin = d.temperatureMin;
-						day.temperatureMax = d.temperatureMax;
+						day.temperatureMin = (typeof d.temperatureMin === 'number' ? Math.round(d.temperatureMin) : 0);
+						day.temperatureMax = (typeof d.temperatureMax === 'number' ? Math.round(d.temperatureMax) : 0);
 						day.dewPoint = d.dewPoint;
-						day.humidity = d.humidity;
-						day.windSpeed = d.windSpeed;
+						day.humidity = (typeof d.humidity === 'number' ? Math.round(d.humidity) : 0);
+						day.windSpeed = (typeof d.windSpeed === 'number' ? Math.round(d.windSpeed) : 0);
+						day.precipProbability = (typeof d.precipProbability === 'number' ? d.precipProbability * 100 : 0);
+						day.precipProbability = (typeof day.precipProbability === 'number' ? Math.round(day.precipProbability) : 0);
 						days.push(day);
 					}
 					weather.days = days;

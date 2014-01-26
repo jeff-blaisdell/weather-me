@@ -1,19 +1,47 @@
-<div>
-    <label>Address or Postal Code</label>
-    <input wm-debounce ng-model="address" ng-change="lookupLocation()" type="text" />
-</div>
-<div>
-    <label>Location Data</label>
-    <h5>{{location.name}}</h5>
-    <h5>{{location.latitude}}</h5>
-    <h5>{{location.longitude}}</h5>
-</div>
-
-<div ng-if="weather" ng-repeat="day in weather.days">
-    <div>
-       <img src="{{day.imageUrl}}" />
-       <span>{{day.date.dayOfWeek}}&nbsp;{{day.date.month}}&nbsp;{{day.date.day}},&nbsp;{{day.date.year}}</span>
-       <span>Min: {{day.temperatureMin}}&deg;F</span>
-       <span>Max: {{day.temperatureMax}}&deg;F</span>
+<header>
+    <div class="jumbotron wm-banner">
+        <span class="wm-banner-logo">
+            <h1>{{siteName}}</h1>
+            <p>{{siteText}}</p>
+        </span>
+        <span class="wm-banner-field-group">
+            <input wm-debounce ng-model="address" ng-change="lookupLocation()" type="text" placeholder="Where are you?" autofocus />
+        </span>
     </div>
-</div>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <span class="navbar-brand">
+                <label>Location</label>
+                <p><small>{{location.name}}</small></p>
+            </span>
+        </div>
+    </nav>
+</header>
+<section>
+    <div class="container" ng-show="weather">
+        <div class="row">
+            <div class="panel col-md-4 col-sm-6 col-xs-12" ng-repeat="day in weather.days">
+                <span class="panel-heading wm-weather-heading">
+                    <span class="wm-dow">
+                        {{day.date.dayOfWeek}}
+                        <span class="wm-date">{{day.date.month}}&nbsp;{{day.date.day}}</span>
+                    </span>
+                </span>
+                <span class="panel-body clearfix wm-weather-body">
+                    <span class="wm-weather-imagery">
+                        <img class="wm-weather-icon img-responsive" src="{{day.imageUrl}}" />
+                    </span>
+                    <span class="wm-weather-details">
+                        <p class="lead">{{day.temperatureMax}}&deg;</p>
+                        <p class="wm-weather-detail">Min: {{day.temperatureMin}}&deg;</p>
+                        <p class="wm-weather-detail">Humidity: {{day.humidity}}%</p>
+                        <p class="wm-weather-detail">Wind: {{day.windSpeed}} mph</p>
+                        <p class="wm-weather-detail">Chance of Precipitation: {{day.precipProbability}}%</p>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+

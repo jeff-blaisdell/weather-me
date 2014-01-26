@@ -6,7 +6,7 @@ define([
 
 	app.factory('MonthConverter', [function () {
 
-		var monthArray =new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+		var monthArray =new Array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
 
 		return {
 			convert: function( monthNumber ) {

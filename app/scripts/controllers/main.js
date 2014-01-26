@@ -39,13 +39,20 @@ define([
 				});
 		}
 
-
+		$scope.siteName       = 'Weather Me';
+		$scope.siteText       = 'Play outside!';
 		$scope.address        = null;
 		$scope.location       = null;
 		$scope.weather        = null;
 		$scope.lookupLocation = lookupLocation;
 		$scope.lookupWeather  = lookupWeather;
 		$scope.$watch('location', lookupWeather);
+
+		/*
+		 * Default Location.
+		 */
+		lookupLocation.apply({ 'address': '15 S 5th St 300, Minneapolis, MN'});
+
 
 	}]);
 
