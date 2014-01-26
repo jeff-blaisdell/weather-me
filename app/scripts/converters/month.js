@@ -13,7 +13,7 @@ define([
 
 				var month = null;
 				if (monthNumber && typeof monthNumber === 'number' && monthNumber >= 0 || monthNumber <= 11) {
-					month = monthArray[month];
+					month = monthArray[monthNumber];
 				}
 
 				return month;

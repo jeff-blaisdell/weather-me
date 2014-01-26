@@ -12,7 +12,7 @@
 <div ng-if="weather" ng-repeat="day in weather.days">
     <div>
        <img src="{{day.imageUrl}}" />
-       <span>{{day.dayOfWeek}}&nbsp;{{day.month}}&nbsp;{{day.date}},&nbsp;{{day.year}}</span>
+       <span>{{day.date.dayOfWeek}}&nbsp;{{day.date.month}}&nbsp;{{day.date.day}},&nbsp;{{day.date.year}}</span>
        <span>Min: {{day.temperatureMin}}&deg;F</span>
        <span>Max: {{day.temperatureMax}}&deg;F</span>
     </div>

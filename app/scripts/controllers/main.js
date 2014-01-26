@@ -45,7 +45,6 @@ define([
 		$scope.weather        = null;
 		$scope.lookupLocation = lookupLocation;
 		$scope.lookupWeather  = lookupWeather;
-
 		$scope.$watch('location', lookupWeather);
 
 	}]);
