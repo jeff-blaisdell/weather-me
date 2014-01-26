@@ -1,36 +1,45 @@
+/**
+ * debounce directive used for throttling angular model updates.
+ * taken from here:
+ * http://tommaitland.net/2013/11/debounced-delayed-throttled-model-updates-angular-1-2/
+ */
 define([
-    'angular'
+	'angular'
 ], function(angular) {
 
-    angular.module('wmDebounce', [])
-        .directive('wmDebounce', function($timeout) {
-        return {
-            restrict: 'A',
-            require: 'ngModel',
-            priority: 99,
-            link: function(scope, elm, attr, ngModelCtrl) {
-                if (attr.type === 'radio' || attr.type === 'checkbox') return;
+	'use strict';
 
-                elm.unbind('input');
+	angular.module('wmDebounce', [])
+		.directive('wmDebounce', function($timeout) {
+		return {
+			restrict: 'A',
+			require: 'ngModel',
+			priority: 99,
+			link: function(scope, elm, attr, ngModelCtrl) {
+				if (attr.type === 'radio' || attr.type === 'checkbox') {
+					return;
+				}
 
-                var debounce;
-                elm.bind('input', function() {
-                    $timeout.cancel(debounce);
-                    debounce = $timeout( function() {
-                        scope.$apply(function() {
-                            ngModelCtrl.$setViewValue(elm.val());
-                        });
-                    }, 1000);
-                });
-                elm.bind('blur', function() {
-                    scope.$apply(function() {
-                        ngModelCtrl.$setViewValue(elm.val());
-                    });
-                });
-            }
+				elm.unbind('input');
 
-        }
-    });
+				var debounce;
+				elm.bind('input', function() {
+					$timeout.cancel(debounce);
+					debounce = $timeout( function() {
+						scope.$apply(function() {
+							ngModelCtrl.$setViewValue(elm.val());
+						});
+					}, 1000);
+				});
+				elm.bind('blur', function() {
+					scope.$apply(function() {
+						ngModelCtrl.$setViewValue(elm.val());
+					});
+				});
+			}
+
+		};
+	});
 
 
 });

@@ -5,7 +5,7 @@ define([
 	'angular-resource',
 	'angular-sanitize',
 	'angular-ui-router',
-    'directives/debounce'
+	'directives/debounce'
 ], function( angular ) {
 
 	'use strict';
@@ -15,12 +15,12 @@ define([
 		'ngResource',
 		'ngSanitize',
 		'ui.router',
-        'wmDebounce'
+		'wmDebounce'
 	]);
 
-	app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+	app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
-        $locationProvider.html5Mode(true);
+		$locationProvider.html5Mode(true);
 
 
 		// For any unmatched url, redirect to /state1
