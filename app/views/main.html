@@ -5,4 +5,15 @@
 <div>
     <label>Location Data</label>
     <h5>{{location.name}}</h5>
+    <h5>{{location.latitude}}</h5>
+    <h5>{{location.longitude}}</h5>
+</div>
+
+<div ng-if="weather" ng-repeat="day in weather.days">
+    <div>
+       <img src="{{day.imageUrl}}" />
+       <span>{{day.dayOfWeek}}&nbsp;{{day.month}}&nbsp;{{day.date}},&nbsp;{{day.year}}</span>
+       <span>Min: {{day.temperatureMin}}&deg;F</span>
+       <span>Max: {{day.temperatureMax}}&deg;F</span>
+    </div>
 </div>

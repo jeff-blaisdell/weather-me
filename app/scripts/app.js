@@ -18,9 +18,9 @@ define([
         'wmDebounce'
 	]);
 
-	app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+	app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
-		$locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(true);
 
 
 		// For any unmatched url, redirect to /state1
