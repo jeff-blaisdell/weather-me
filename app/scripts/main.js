@@ -8,7 +8,9 @@ requirejs.config({
 		'angular-cookies': '../bower_components/angular-cookies/angular-cookies',
 		'angular-sanitize': '../bower_components/angular-sanitize/angular-sanitize',
 		'angular-animate': '../bower_components/angular-animate/angular-animate',
-		'angular-ui-router': '../bower_components/angular-ui-router/angular-ui-router'
+		'angular-ui-router': '../bower_components/angular-ui-router/angular-ui-router',
+		'angular-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap',
+		'angular-bootstrap-tpls': '../bower_components/angular-bootstrap/ui-bootstrap-tpls'
 	},
 	shim: {
 		'jquery': {
@@ -22,7 +24,9 @@ requirejs.config({
 		'angular-cookies': ['angular'],
 		'angular-sanitize': ['angular'],
 		'angular-animate': ['angular'],
-		'angular-ui-router': ['angular']
+		'angular-ui-router': ['angular'],
+		'angular-bootstrap': ['angular'],
+		'angular-bootstrap-tpls': ['angular-bootstrap']
 	}
 });
 

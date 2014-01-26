@@ -5,6 +5,8 @@ define([
 	'angular-resource',
 	'angular-sanitize',
 	'angular-ui-router',
+	'angular-bootstrap',
+	'angular-bootstrap-tpls',
 	'directives/debounce'
 ], function( angular ) {
 
@@ -15,6 +17,8 @@ define([
 		'ngResource',
 		'ngSanitize',
 		'ui.router',
+		'ui.bootstrap',
+		'ui.bootstrap.tpls',
 		'wmDebounce'
 	]);
 

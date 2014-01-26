@@ -39,13 +39,16 @@ define([
 				});
 		}
 
-		$scope.siteName       = 'Weather Me';
-		$scope.siteText       = 'Play outside!';
-		$scope.address        = null;
-		$scope.location       = null;
-		$scope.weather        = null;
-		$scope.lookupLocation = lookupLocation;
-		$scope.lookupWeather  = lookupWeather;
+		$scope.siteName           = 'Weather Me';
+		$scope.siteText           = 'Play outside!';
+		$scope.address            = null;
+		$scope.location           = null;
+		$scope.weather            = null;
+        $scope.isFiltersCollapsed = true;
+        $scope.maxTemperature     = 30;
+        $scope.minTemperature     = -10;
+		$scope.lookupLocation     = lookupLocation;
+		$scope.lookupWeather      = lookupWeather;
 		$scope.$watch('location', lookupWeather);
 
 		/*

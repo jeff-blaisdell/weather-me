@@ -1,6 +1,11 @@
 .wm-banner {
-    background: url('/images/cute-landscape.svg') 0% 80%;
     position: relative;
+    margin-bottom: 10px;
+}
+
+.wm-jumbotron {
+    background: url('/images/cute-landscape.svg') 0% 80%;
+    margin: 0;
 }
 
 .wm-banner-field-group {
@@ -36,9 +41,8 @@
 }
 
 @media (min-width: 800px) {
-    .wm-banner {
+    .wm-jumbotron {
         min-height: 250px;
         background-position: 0% 100%;
     }
-    
 }

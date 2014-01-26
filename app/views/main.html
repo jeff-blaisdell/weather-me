@@ -1,19 +1,40 @@
 <header>
-    <div class="jumbotron wm-banner">
-        <span class="wm-banner-logo">
-            <h1>{{siteName}}</h1>
-            <p>{{siteText}}</p>
-        </span>
-        <span class="wm-banner-field-group">
-            <input wm-debounce ng-model="address" ng-change="lookupLocation()" type="text" placeholder="Where are you?" autofocus />
-        </span>
-    </div>
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-            <span class="navbar-brand">
-                <label>Location</label>
-                <p><small>{{location.name}}</small></p>
+    <div class="wm-banner">
+        <div class="jumbotron wm-jumbotron">
+            <span class="wm-banner-logo">
+                <h1>{{siteName}}</h1>
+                <p class="text-primary">{{siteText}}</p>
             </span>
+            <span class="wm-banner-field-group">
+                <input wm-debounce ng-model="address" ng-change="lookupLocation()" type="text" placeholder="Where are you?" autofocus />
+            </span>
+        </div>
+        <p class="wm-location">Location: <small>{{location.name}}</small></p>
+    </div>
+    <nav class="navbar navbar-default wm-navbar" role="navigation">
+        <div class="navbar-header wm-navbar-header">
+            <div class="navbar-left">
+                <button type="button" class="btn btn-default navbar-btn" ng-click="isFiltersCollapsed = !isFiltersCollapsed">Filters</button>
+            </div>
+        </div>
+        <div class="wm-navbar-filters" collapse="isFiltersCollapsed">
+            <form class="navbar-form navbar-left wm-navbar-form" role="search">
+                <div class="form-group wm-form-group">
+                    <span class="wm-form-control">
+                        <label for="maxTemperature"><small>Max Temperature</small> {{maxTemperature}}&deg;</label>
+                        <span class="wm-range-input">
+                            <input id="maxTemperature" type="range" ng-model="maxTemperature" min="-50" max="125">
+                        </span>
+                    </span>
+                    <span class="wm-form-control">
+                        <label for="minTemperature"><small>Min Temperature</small> {{minTemperature}}&deg;</label>
+                        <span class="wm-range-input">
+                            <input id="minTemperature" type="range" ng-model="minTemperature" min="-50" max="125">
+                        </span>
+                    </span>
+                    <h5>{{temperature}}</h5>
+                </div>
+            </form>
         </div>
     </nav>
 </header>
