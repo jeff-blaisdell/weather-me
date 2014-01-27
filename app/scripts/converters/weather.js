@@ -39,9 +39,15 @@ define([
 		return {
 			convert: function( response ) {
 				var weather = {};
+				var days    = [];
+				weather.temperatureMax = 0;
+				weather.temperatureMin = 0;
+
 
 				if ( response && response.data && response.data.daily && response.data.daily.data ) {
-					var days   = [];
+
+					weather.temperatureMax = response.data.daily.data[0].temperatureMax;
+					weather.temperatureMin = response.data.daily.data[0].temperatureMin;
 
 					for (var i = 0, length = response.data.daily.data.length; i < length; i++) {
 						var d = response.data.daily.data[i];
@@ -57,6 +63,15 @@ define([
 						day.precipProbability = (typeof d.precipProbability === 'number' ? d.precipProbability * 100 : 0);
 						day.precipProbability = (typeof day.precipProbability === 'number' ? Math.round(day.precipProbability) : 0);
 						days.push(day);
+
+						if (day.temperatureMin < weather.temperatureMin) {
+							weather.temperatureMin = day.temperatureMin;
+						}
+
+						if (day.temperatureMax > weather.temperatureMax) {
+							weather.temperatureMax = day.temperatureMax;
+						}
+
 					}
 					weather.days = days;
 				}

@@ -11,55 +11,56 @@
         </div>
         <p class="wm-location">Location: <small>{{location.name}}</small></p>
     </div>
-    <nav class="navbar navbar-default wm-navbar" role="navigation">
-        <div class="navbar-header wm-navbar-header">
-            <div class="navbar-left">
-                <button type="button" class="btn btn-default navbar-btn" ng-click="isFiltersCollapsed = !isFiltersCollapsed">Filters</button>
-            </div>
-        </div>
-        <div class="wm-navbar-filters" collapse="isFiltersCollapsed">
-            <form class="navbar-form navbar-left wm-navbar-form" role="search">
-                <div class="form-group wm-form-group">
-                    <span class="wm-form-control">
-                        <label for="maxTemperature"><small>Max Temperature</small> {{maxTemperature}}&deg;</label>
-                        <span class="wm-range-input">
-                            <input id="maxTemperature" type="range" ng-model="maxTemperature" min="-50" max="125">
-                        </span>
-                    </span>
-                    <span class="wm-form-control">
-                        <label for="minTemperature"><small>Min Temperature</small> {{minTemperature}}&deg;</label>
-                        <span class="wm-range-input">
-                            <input id="minTemperature" type="range" ng-model="minTemperature" min="-50" max="125">
-                        </span>
-                    </span>
-                    <h5>{{temperature}}</h5>
-                </div>
-            </form>
-        </div>
-    </nav>
 </header>
 <section>
-    <div class="container" ng-show="weather">
-        <div class="row">
-            <div class="panel col-md-4 col-sm-6 col-xs-12" ng-repeat="day in weather.days">
-                <span class="panel-heading wm-weather-heading">
-                    <span class="wm-dow">
-                        {{day.date.dayOfWeek}}
-                        <span class="wm-date">{{day.date.month}}&nbsp;{{day.date.day}}</span>
+    <div ng-show="weather">
+        <nav class="navbar navbar-default wm-navbar" role="navigation">
+            <div class="navbar-header wm-navbar-header">
+                <div class="navbar-left">
+                    <button type="button" class="btn btn-default navbar-btn" ng-click="isFiltersCollapsed = !isFiltersCollapsed">Filters</button>
+                </div>
+            </div>
+            <div class="wm-navbar-filters" collapse="isFiltersCollapsed">
+                <form class="navbar-form navbar-left wm-navbar-form" role="search">
+                    <div class="form-group wm-form-group">
+                        <span class="wm-form-control">
+                            <label for="maxTemperature"><small>Max Temperature</small> {{query.maxTemperature}}&deg;</label>
+                            <span class="wm-range-input">
+                                <input id="maxTemperature" type="range" ng-model="query.maxTemperature" min="-50" max="125">
+                            </span>
+                        </span>
+                        <span class="wm-form-control">
+                            <label for="minTemperature"><small>Min Temperature</small> {{query.minTemperature}}&deg;</label>
+                            <span class="wm-range-input">
+                                <input id="minTemperature" type="range" ng-model="query.minTemperature" min="-50" max="125">
+                            </span>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="panel col-md-4 col-sm-6 col-xs-12" ng-repeat="day in weather.days | filter:weatherFilter:maxTemperature">
+                    <span class="panel-heading wm-weather-heading">
+                        <span class="wm-dow">
+                            {{day.date.dayOfWeek}}
+                            <span class="wm-date">{{day.date.month}}&nbsp;{{day.date.day}}</span>
+                        </span>
                     </span>
-                </span>
-                <span class="panel-body clearfix wm-weather-body">
-                    <span class="wm-weather-imagery">
-                        <img class="wm-weather-icon img-responsive" src="{{day.imageUrl}}" />
+                    <span class="panel-body clearfix wm-weather-body">
+                        <span class="wm-weather-imagery">
+                            <img class="wm-weather-icon img-responsive" ng-src="{{day.imageUrl}}" />
+                        </span>
+                        <span class="wm-weather-details">
+                            <p class="lead">{{day.temperatureMax}}&deg;</p>
+                            <p class="wm-weather-detail">Min: {{day.temperatureMin}}&deg;</p>
+                            <p class="wm-weather-detail">Humidity: {{day.humidity}}%</p>
+                            <p class="wm-weather-detail">Wind: {{day.windSpeed}} mph</p>
+                            <p class="wm-weather-detail">Chance of Precipitation: {{day.precipProbability}}%</p>
+                        </span>
                     </span>
-                    <span class="wm-weather-details">
-                        <p class="lead">{{day.temperatureMax}}&deg;</p>
-                        <p class="wm-weather-detail">Min: {{day.temperatureMin}}&deg;</p>
-                        <p class="wm-weather-detail">Humidity: {{day.humidity}}%</p>
-                        <p class="wm-weather-detail">Wind: {{day.windSpeed}} mph</p>
-                        <p class="wm-weather-detail">Chance of Precipitation: {{day.precipProbability}}%</p>
-                    </span>
-                </span>
+                </div>
             </div>
         </div>
     </div>

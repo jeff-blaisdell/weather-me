@@ -11,7 +11,7 @@ define([
 
 					if ( response && response.data && response.data.results ) {
 						var data = response.data.results[0];
-                        data = data || {};
+						data = data || {};
 						var geo  = ( data.geometry && data.geometry.location ? data.geometry.location : {});
 
 						location.name      = data.formatted_address; // jshint ignore:line
