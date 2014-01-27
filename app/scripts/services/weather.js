@@ -8,7 +8,7 @@ define([
 	app.factory('Weather', ['$resource', '$q', 'WeatherConverter', function ($resource, $q, weatherConverter) {
 
 		return $resource(
-			'http://localhost:9010/weather/:latitude/:longitude',
+			'http://secure-castle-4865.herokuapp.com/weather/:latitude/:longitude',
 			{}, {
 				get: {
 					method: 'GET',
