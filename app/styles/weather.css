@@ -1,3 +1,12 @@
+.wm-panel {
+    padding: 0px 0px 20px 0px;
+    border: none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-bottom: 1px solid #BFBFBF;
+}
+
 .wm-weather-heading {
     font-size: 18px;
     margin: 0px;
@@ -36,4 +45,14 @@
 
 .wm-weather-icon {
     max-width: 50px;
+}
+
+@media (min-width: 768px) {
+    .wm-panel {
+        padding: 0px 0px 0px 0px;
+        border: none;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }    
 }

@@ -41,7 +41,7 @@
         </nav>
         <div class="container">
             <div class="row">
-                <div class="panel col-md-4 col-sm-6 col-xs-12" ng-repeat="day in weather.days | filter:weatherFilter:maxTemperature">
+                <div class="panel wm-panel col-md-4 col-sm-6 col-xs-12" ng-repeat="day in weather.days | filter:weatherFilter:maxTemperature">
                     <span class="panel-heading wm-weather-heading">
                         <span class="wm-dow">
                             {{day.date.dayOfWeek}}
