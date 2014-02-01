@@ -10,7 +10,7 @@ define([
 	'use strict';
 
 	angular.module('wmDebounce', [])
-		.directive('wmDebounce', function($timeout) {
+		.directive('wmDebounce', ['$timeout', function($timeout) {
 		return {
 			restrict: 'A',
 			require: 'ngModel',
@@ -39,7 +39,7 @@ define([
 			}
 
 		};
-	});
+	}]);
 
 
 });

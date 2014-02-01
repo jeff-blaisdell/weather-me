@@ -22,7 +22,7 @@ define([
 		'wmDebounce'
 	]);
 
-	app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+	app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
 		$locationProvider.html5Mode(true);
 
@@ -36,7 +36,7 @@ define([
 				url: '/',
 				templateUrl: '/views/main.html'
 			});
-	});
+	}]);
 
 	return app;
 
