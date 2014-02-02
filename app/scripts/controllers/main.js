@@ -28,27 +28,30 @@ define([
 		 * @param minTemp (number)
 		 */
 		function Query(maxTemp, minTemp) {
-			var maxTemperature = maxTemp;
-			var minTemperature = minTemp;
-
-			this.__defineGetter__('maxTemperature', function () {
-				return maxTemperature;
-			});
-
-			this.__defineSetter__('maxTemperature', function (val) {
-				val = parseInt(val);
-				maxTemperature = val;
-			});
-
-			this.__defineGetter__('minTemperature', function () {
-				return minTemperature;
-			});
-
-			this.__defineSetter__('minTemperature', function (val) {
-				val = parseInt(val);
-				minTemperature = val;
-			});
+			this._maxTemperature = maxTemp;
+			this._minTemperature = minTemp;
 		}
+
+		Object.defineProperties(Query.prototype, {
+			'maxTemperature': {
+				get: function() {
+					return this._maxTemperature;
+				},
+				set: function(val) {
+					val = parseInt(val);
+					this._maxTemperature = val;
+				}
+			},
+			'minTemperature': {
+				get: function() {
+					return this._minTemperature;
+				},
+				set: function(val) {
+					val = parseInt(val);
+					this._minTemperature = val;
+				}
+			}
+		});
 
 		/**
 		 * Attempt to resolve weather conditions at current location.
